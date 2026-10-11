@@ -1,0 +1,25 @@
+name = "base-bge-base"
+description = "Ablation: bge-base-en-v1.5 (109M) as the base model."
+
+[model]
+base = "BAAI/bge-base-en-v1.5"
+revision = "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a"
+pooling = "cls"
+query_template = "Represent this sentence for searching relevant passages: {query}"
+eval_max_length = 512
+
+[data]
+text_mode = "full"
+hard_negatives = true
+
+# Fixed before any run; nothing here is tuned on test data.
+[training]
+batch_size = 64
+epochs = 1
+learning_rate = 2e-5
+warmup = 0.1
+temperature = 0.05
+query_max_length = 128
+doc_max_length = 256
+validate_every = 500
+gradient_checkpointing = true  # the 109M model at batch 64 needs it on a 16 GB GPU

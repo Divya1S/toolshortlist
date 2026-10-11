@@ -1,0 +1,8 @@
+name = "rrf-bm25-bge-small-en-v1.5"
+description = "Hybrid: reciprocal rank fusion of BM25 and bge-small-en-v1.5, constant 60 (the standard default), top 100 from each."
+
+[retriever]
+type = "hybrid"
+rrf_k = 60
+depth = 100
+parts = ["configs/bm25.toml", "configs/bge-small-en-v1.5.toml"]

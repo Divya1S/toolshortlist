@@ -1,0 +1,11 @@
+name = "paper-all-MiniLM-L6-v2"
+description = "ToolRet paper protocol: mean pooling, 512 tokens, the query sent as it is, and the released code's 'Instruct: / Query:' format when an instruction is given."
+
+[retriever]
+type = "dense"
+model = "sentence-transformers/all-MiniLM-L6-v2"
+revision = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+pooling = "mean"
+max_length = 512
+query_template = "{query}"
+query_template_inst = "Instruct: {instruction}\nQuery: {query}"

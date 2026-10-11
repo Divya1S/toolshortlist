@@ -1,0 +1,11 @@
+name = "paper-codeprefix-toolret-trained-bge-base"
+description = "As paper-toolret-trained-bge-base, but with the empty 'Instruct: / Query:' prefix that the released ToolRet code puts on a query sent alone. The checkpoint was trained on that template, so the prefix may matter for it. Reference only: no declared licence, never redistributed."
+
+[retriever]
+type = "dense"
+model = "mangopy/ToolRet-trained-bge-base-en-v1.5"
+revision = "f12e9f1f7959407f1f797241e0c4fb0fc88511c3"
+pooling = "cls"
+max_length = 512
+query_template = "Instruct: \nQuery: {query}"
+query_template_inst = "Instruct: {instruction}\nQuery: {query}"

@@ -1,0 +1,31 @@
+[project]
+name = "toolshortlist"
+version = "0.0.1"
+description = "A small trained retrieval model that shortlists the right tools for an AI agent"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "bm25s>=0.2",
+    "huggingface_hub>=0.23",
+    "numpy>=1.26",
+    "pyarrow>=15",
+    "torch>=2.2",
+    "transformers>=4.40",
+]
+
+# Exact versions are pinned in uv.lock. Reproduce with `uv sync --frozen`.
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "pytrec-eval-terrier>=0.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/toolshortlist"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,11 @@
+name = "bge-small-en-v1.5"
+description = "Off-the-shelf, used as its model card recommends: CLS pooling, 512 tokens, the retrieval prefix on queries."
+
+[retriever]
+type = "dense"
+model = "BAAI/bge-small-en-v1.5"
+revision = "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
+pooling = "cls"
+max_length = 512
+query_template = "Represent this sentence for searching relevant passages: {query}"
+query_template_inst = "Represent this sentence for searching relevant passages: {instruction} {query}"

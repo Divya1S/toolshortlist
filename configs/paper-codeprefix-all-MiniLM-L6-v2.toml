@@ -1,0 +1,11 @@
+name = "paper-codeprefix-all-MiniLM-L6-v2"
+description = "As paper-all-MiniLM-L6-v2, but with the empty 'Instruct: / Query:' prefix that the released ToolRet code puts on a query sent alone. Kept to show what that prefix does to the score."
+
+[retriever]
+type = "dense"
+model = "sentence-transformers/all-MiniLM-L6-v2"
+revision = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+pooling = "mean"
+max_length = 512
+query_template = "Instruct: \nQuery: {query}"
+query_template_inst = "Instruct: {instruction}\nQuery: {query}"

@@ -1,0 +1,5 @@
+name = "bm25"
+description = "BM25: bm25s with English stop words and no stemming. This is also the ToolRet paper's BM25s protocol."
+
+[retriever]
+type = "bm25"

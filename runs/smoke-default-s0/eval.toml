@@ -1,0 +1,18 @@
+name = "train-default-s0"
+description = "Trained in Stage 2: bge-small-en-v1.5 (33M), full tool text, hard negatives on. The run every ablation changes one thing from."
+
+[train]
+config = "default"
+seed = 0
+base = "BAAI/bge-small-en-v1.5"
+text_mode = "full"
+hard_negatives = true
+
+[retriever]
+type = "dense"
+model = "/Users/divyarajput/toolshortlist/runs/train-default-s0/model"
+pooling = "cls"
+max_length = 512
+query_template = "Represent this sentence for searching relevant passages: {query}"
+query_template_inst = "Represent this sentence for searching relevant passages: {instruction} {query}"
+text_mode = "full"

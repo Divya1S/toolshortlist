@@ -1,0 +1,11 @@
+name = "paper-bge-base-en-v1.5"
+description = "ToolRet paper protocol: CLS pooling, 512 tokens, the query sent as it is, and the released code's 'Instruct: / Query:' format when an instruction is given."
+
+[retriever]
+type = "dense"
+model = "BAAI/bge-base-en-v1.5"
+revision = "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a"
+pooling = "cls"
+max_length = 512
+query_template = "{query}"
+query_template_inst = "Instruct: {instruction}\nQuery: {query}"

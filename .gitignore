@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# Embedding cache written by the retrievers. Regenerated on demand.
+cache/
+# Downloaded data never goes in the repository (see DATA.md).
+data/
+# Training checkpoints are large and never committed; the small summary.json, log.jsonl and eval.toml next to them are.
+runs/*/model/

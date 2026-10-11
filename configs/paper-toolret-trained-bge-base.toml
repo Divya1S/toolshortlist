@@ -1,0 +1,11 @@
+name = "paper-toolret-trained-bge-base"
+description = "The ToolRet authors' checkpoint, fine-tuned from bge-base-en-v1.5 on their training set, under the ToolRet paper protocol (see paper-bge-base-en-v1.5). Reference only: no declared licence, never redistributed."
+
+[retriever]
+type = "dense"
+model = "mangopy/ToolRet-trained-bge-base-en-v1.5"
+revision = "f12e9f1f7959407f1f797241e0c4fb0fc88511c3"
+pooling = "cls"
+max_length = 512
+query_template = "{query}"
+query_template_inst = "Instruct: {instruction}\nQuery: {query}"

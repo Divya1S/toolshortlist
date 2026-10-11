@@ -1,0 +1,8 @@
+name = "rrf-bm25-all-MiniLM-L6-v2"
+description = "Hybrid: reciprocal rank fusion of BM25 and all-MiniLM-L6-v2, constant 60 (the standard default), top 100 from each."
+
+[retriever]
+type = "hybrid"
+rrf_k = 60
+depth = 100
+parts = ["configs/bm25.toml", "configs/all-MiniLM-L6-v2.toml"]

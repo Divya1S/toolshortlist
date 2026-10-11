@@ -1,0 +1,936 @@
+{
+ "name": "paper-codeprefix-all-MiniLM-L6-v2",
+ "date": "2026-10-06",
+ "config": {
+  "name": "paper-codeprefix-all-MiniLM-L6-v2",
+  "description": "As paper-all-MiniLM-L6-v2, but with the empty 'Instruct: / Query:' prefix that the released ToolRet code puts on a query sent alone. Kept to show what that prefix does to the score.",
+  "retriever": {
+   "type": "dense",
+   "model": "sentence-transformers/all-MiniLM-L6-v2",
+   "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+   "pooling": "mean",
+   "max_length": 512,
+   "query_template": "Instruct: \nQuery: {query}",
+   "query_template_inst": "Instruct: {instruction}\nQuery: {query}"
+  }
+ },
+ "environment": {
+  "python": "3.13.13",
+  "machine": "arm64",
+  "torch": "2.14.1",
+  "transformers": "5.19.0",
+  "bm25s": "0.3.12",
+  "numpy": "2.5.3",
+  "embedding_device": "mps",
+  "embedding_precision": "fp16"
+ },
+ "dataset_revisions": {
+  "mangopy/ToolRet-Queries": "b8c76ad3349ff17497b6bdb28bb5b8f61a0f6445",
+  "mangopy/ToolRet-Tools": "e06c38c75612b6536bd959e08cdd345894aba6a7",
+  "mangopy/ToolRet-Training-20w": "fdf5a317455b1e60785de7ba587496aa6cc878e4",
+  "ICIP/LiveMCPBench": "ddea2d24196638bc4026c4cb891f679d0357bfd0"
+ },
+ "benchmarks": {
+  "toolret": {
+   "tools": 44453,
+   "queries": 7961,
+   "notes": {},
+   "settings": {
+    "query": {
+     "all": {
+      "queries": 7961,
+      "groups": 35,
+      "query_mean": {
+       "recall@1": 0.12585909882103827,
+       "recall@5": 0.24217943426585556,
+       "recall@10": 0.2946837559292025,
+       "ndcg@10": 0.22120762031559643,
+       "completeness@10": 0.23564878784072352
+      },
+      "group_mean": {
+       "recall@1": 0.0829993483987111,
+       "recall@5": 0.1662965490855641,
+       "recall@10": 0.21037891737034758,
+       "ndcg@10": 0.1558544651222971,
+       "completeness@10": 0.15947399093669481
+      }
+     },
+     "splits": {
+      "web": {
+       "queries": 5230,
+       "groups": 19,
+       "query_mean": {
+        "recall@1": 0.12886870618228172,
+        "recall@5": 0.2541586998087954,
+        "recall@10": 0.3097546207775653,
+        "ndcg@10": 0.2263117304444783,
+        "completeness@10": 0.24875717017208412
+       },
+       "group_mean": {
+        "recall@1": 0.05781682395141765,
+        "recall@5": 0.1287784620418239,
+        "recall@10": 0.1640289844464516,
+        "ndcg@10": 0.11721113710727528,
+        "completeness@10": 0.11358547019018997
+       }
+      },
+      "code": {
+       "queries": 1749,
+       "groups": 7,
+       "query_mean": {
+        "recall@1": 0.11880121974461597,
+        "recall@5": 0.21145416428435296,
+        "recall@10": 0.2513340956737183,
+        "ndcg@10": 0.198439547126395,
+        "completeness@10": 0.22698684962835905
+       },
+       "group_mean": {
+        "recall@1": 0.08609005428300509,
+        "recall@5": 0.1565634583737685,
+        "recall@10": 0.1869380639712285,
+        "ndcg@10": 0.14254916532824707,
+        "completeness@10": 0.17469795666069862
+       }
+      },
+      "customized": {
+       "queries": 982,
+       "groups": 9,
+       "query_mean": {
+        "recall@1": 0.12240083406071185,
+        "recall@5": 0.23310299679953447,
+        "recall@10": 0.29162666084763844,
+        "ndcg@10": 0.23457509896514964,
+        "completeness@10": 0.18126272912423624
+       },
+       "group_mean": {
+        "recall@1": 0.13375857321076862,
+        "recall@5": 0.2530715811759677,
+        "recall@10": 0.3264605506312207,
+        "ndcg@10": 0.2477833907716042,
+        "completeness@10": 0.24450889472731324
+       }
+      },
+      "unseen_source": {
+       "queries": 4410,
+       "groups": 28,
+       "query_mean": {
+        "recall@1": 0.08181729834791059,
+        "recall@5": 0.1625072886297376,
+        "recall@10": 0.20340756937695711,
+        "ndcg@10": 0.15533295324025545,
+        "completeness@10": 0.14988662131519273
+       },
+       "group_mean": {
+        "recall@1": 0.07473782135969295,
+        "recall@5": 0.15342149104378136,
+        "recall@10": 0.1964875728049682,
+        "ndcg@10": 0.14547195094846224,
+        "completeness@10": 0.1440834739696191
+       }
+      },
+      "seen_source": {
+       "queries": 3551,
+       "groups": 7,
+       "query_mean": {
+        "recall@1": 0.18055477330329484,
+        "recall@5": 0.3411245658499953,
+        "recall@10": 0.40803998873556746,
+        "ndcg@10": 0.3030176123748062,
+        "completeness@10": 0.34215713883413124
+       },
+       "group_mean": {
+        "recall@1": 0.1160454565547837,
+        "recall@5": 0.21779678125269503,
+        "recall@10": 0.26594429563186506,
+        "ndcg@10": 0.1973845218176365,
+        "completeness@10": 0.2210360588049977
+       }
+      }
+     },
+     "groups": {
+      "apibank": {
+       "queries": 101,
+       "recall@1": 0.08250825082508251,
+       "recall@5": 0.16996699669966997,
+       "recall@10": 0.22442244224422445,
+       "ndcg@10": 0.16543244609216354,
+       "completeness@10": 0.13861386138613863
+      },
+      "apigen": {
+       "queries": 1000,
+       "recall@1": 0.3515,
+       "recall@5": 0.5845,
+       "recall@10": 0.6673333333333333,
+       "ndcg@10": 0.5188814771074216,
+       "completeness@10": 0.587
+      },
+      "appbench": {
+       "queries": 32,
+       "recall@1": 0.14583333333333334,
+       "recall@5": 0.3697916666666667,
+       "recall@10": 0.4921875,
+       "ndcg@10": 0.33905769190184365,
+       "completeness@10": 0.40625
+      },
+      "autotools-food": {
+       "queries": 22,
+       "recall@1": 0.0303030303030303,
+       "recall@5": 0.10984848484848485,
+       "recall@10": 0.125,
+       "ndcg@10": 0.09457787062767341,
+       "completeness@10": 0.045454545454545456
+      },
+      "autotools-music": {
+       "queries": 32,
+       "recall@1": 0.015625,
+       "recall@5": 0.0453125,
+       "recall@10": 0.059375,
+       "ndcg@10": 0.0517883872896997,
+       "completeness@10": 0.0
+      },
+      "autotools-weather": {
+       "queries": 11,
+       "recall@1": 0.022727272727272728,
+       "recall@5": 0.022727272727272728,
+       "recall@10": 0.022727272727272728,
+       "ndcg@10": 0.035489095453827425,
+       "completeness@10": 0.0
+      },
+      "craft-math-algebra": {
+       "queries": 280,
+       "recall@1": 0.3357142857142857,
+       "recall@5": 0.5642857142857143,
+       "recall@10": 0.65,
+       "ndcg@10": 0.4914680641006199,
+       "completeness@10": 0.65
+      },
+      "craft-tabmwp": {
+       "queries": 174,
+       "recall@1": 0.017241379310344827,
+       "recall@5": 0.04597701149425287,
+       "recall@10": 0.08620689655172414,
+       "ndcg@10": 0.04503386917628413,
+       "completeness@10": 0.08620689655172414
+      },
+      "craft-vqa": {
+       "queries": 200,
+       "recall@1": 0.045,
+       "recall@5": 0.1,
+       "recall@10": 0.115,
+       "ndcg@10": 0.0766199135169871,
+       "completeness@10": 0.115
+      },
+      "gorilla-huggingface": {
+       "queries": 500,
+       "recall@1": 0.02,
+       "recall@5": 0.062,
+       "recall@10": 0.104,
+       "ndcg@10": 0.05440888137141793,
+       "completeness@10": 0.104
+      },
+      "gorilla-pytorch": {
+       "queries": 43,
+       "recall@1": 0.0,
+       "recall@5": 0.0,
+       "recall@10": 0.0,
+       "ndcg@10": 0.0,
+       "completeness@10": 0.0
+      },
+      "gorilla-tensor": {
+       "queries": 55,
+       "recall@1": 0.0,
+       "recall@5": 0.01818181818181818,
+       "recall@10": 0.01818181818181818,
+       "ndcg@10": 0.011471450064935591,
+       "completeness@10": 0.01818181818181818
+      },
+      "gpt4tools": {
+       "queries": 32,
+       "recall@1": 0.0,
+       "recall@5": 0.09375,
+       "recall@10": 0.125,
+       "ndcg@10": 0.058207384603401,
+       "completeness@10": 0.125
+      },
+      "gta": {
+       "queries": 14,
+       "recall@1": 0.0,
+       "recall@5": 0.0,
+       "recall@10": 0.03571428571428571,
+       "ndcg@10": 0.015600531201297441,
+       "completeness@10": 0.0
+      },
+      "metatool": {
+       "queries": 200,
+       "recall@1": 0.2575,
+       "recall@5": 0.405,
+       "recall@10": 0.48,
+       "ndcg@10": 0.36378955423424203,
+       "completeness@10": 0.46
+      },
+      "mnms": {
+       "queries": 33,
+       "recall@1": 0.0,
+       "recall@5": 0.0,
+       "recall@10": 0.0101010101010101,
+       "ndcg@10": 0.004280817359388757,
+       "completeness@10": 0.0
+      },
+      "restgpt-spotify": {
+       "queries": 40,
+       "recall@1": 0.04375,
+       "recall@5": 0.04375,
+       "recall@10": 0.04375,
+       "ndcg@10": 0.050088181068938996,
+       "completeness@10": 0.025
+      },
+      "restgpt-tmdb": {
+       "queries": 54,
+       "recall@1": 0.006172839506172839,
+       "recall@5": 0.006172839506172839,
+       "recall@10": 0.006172839506172839,
+       "ndcg@10": 0.008690346778199194,
+       "completeness@10": 0.0
+      },
+      "reversechain": {
+       "queries": 200,
+       "recall@1": 0.0325,
+       "recall@5": 0.08791666666666666,
+       "recall@10": 0.13125,
+       "ndcg@10": 0.10074374696662756,
+       "completeness@10": 0.01
+      },
+      "rotbench": {
+       "queries": 550,
+       "recall@1": 0.02,
+       "recall@5": 0.06909090909090909,
+       "recall@10": 0.0890909090909091,
+       "ndcg@10": 0.048069280324079366,
+       "completeness@10": 0.0890909090909091
+      },
+      "t-eval-dialog": {
+       "queries": 50,
+       "recall@1": 0.06,
+       "recall@5": 0.1,
+       "recall@10": 0.16,
+       "ndcg@10": 0.09527662748795653,
+       "completeness@10": 0.16
+      },
+      "t-eval-step": {
+       "queries": 50,
+       "recall@1": 0.016666666666666666,
+       "recall@5": 0.15466666666666667,
+       "recall@10": 0.2503333333333333,
+       "ndcg@10": 0.15842030884032068,
+       "completeness@10": 0.06
+      },
+      "taskbench-daily": {
+       "queries": 40,
+       "recall@1": 0.08333333333333334,
+       "recall@5": 0.23833333333333334,
+       "recall@10": 0.24458333333333332,
+       "ndcg@10": 0.1696089862722283,
+       "completeness@10": 0.2
+      },
+      "taskbench-huggingface": {
+       "queries": 23,
+       "recall@1": 0.2753623188405797,
+       "recall@5": 0.42173913043478256,
+       "recall@10": 0.5322463768115943,
+       "ndcg@10": 0.44403330499013555,
+       "completeness@10": 0.391304347826087
+      },
+      "taskbench-multimedia": {
+       "queries": 40,
+       "recall@1": 0.27125,
+       "recall@5": 0.4708333333333333,
+       "recall@10": 0.5979166666666667,
+       "ndcg@10": 0.4857050449423723,
+       "completeness@10": 0.4
+      },
+      "tool-be-honest": {
+       "queries": 350,
+       "recall@1": 0.07956462585034013,
+       "recall@5": 0.20440136054421768,
+       "recall@10": 0.25705442176870746,
+       "ndcg@10": 0.24382167337801447,
+       "completeness@10": 0.0
+      },
+      "toolace": {
+       "queries": 1000,
+       "recall@1": 0.25148333333333334,
+       "recall@5": 0.4709166666666667,
+       "recall@10": 0.5433166666666667,
+       "ndcg@10": 0.40780413262529086,
+       "completeness@10": 0.512
+      },
+      "toolalpaca": {
+       "queries": 94,
+       "recall@1": 0.14893617021276595,
+       "recall@5": 0.2765957446808511,
+       "recall@10": 0.3723404255319149,
+       "ndcg@10": 0.24701133384832447,
+       "completeness@10": 0.3723404255319149
+      },
+      "toolbench": {
+       "queries": 1100,
+       "recall@1": 0.020984848484848485,
+       "recall@5": 0.11337878787878788,
+       "recall@10": 0.1774090909090909,
+       "ndcg@10": 0.1096158382900348,
+       "completeness@10": 0.07272727272727272
+      },
+      "toolbench-sam": {
+       "queries": 197,
+       "recall@1": 0.025380710659898477,
+       "recall@5": 0.03553299492385787,
+       "recall@10": 0.04568527918781726,
+       "ndcg@10": 0.032823997844807086,
+       "completeness@10": 0.04568527918781726
+      },
+      "toolemu": {
+       "queries": 38,
+       "recall@1": 0.013157894736842105,
+       "recall@5": 0.039473684210526314,
+       "recall@10": 0.06578947368421052,
+       "ndcg@10": 0.04066070900002361,
+       "completeness@10": 0.05263157894736842
+      },
+      "tooleyes": {
+       "queries": 95,
+       "recall@1": 0.031578947368421054,
+       "recall@5": 0.11578947368421053,
+       "recall@10": 0.16842105263157894,
+       "ndcg@10": 0.08995490997766155,
+       "completeness@10": 0.16842105263157894
+      },
+      "toolink": {
+       "queries": 497,
+       "recall@1": 0.18467471495640508,
+       "recall@5": 0.30549966465459427,
+       "recall@10": 0.33517773306505705,
+       "ndcg@10": 0.3188419790674849,
+       "completeness@10": 0.24949698189134809
+      },
+      "toollens": {
+       "queries": 314,
+       "recall@1": 0.0010615711252653928,
+       "recall@5": 0.011146496815286623,
+       "recall@10": 0.01910828025477707,
+       "ndcg@10": 0.011101388108856707,
+       "completeness@10": 0.0031847133757961785
+      },
+      "ultratool": {
+       "queries": 500,
+       "recall@1": 0.015166666666666667,
+       "recall@5": 0.0638,
+       "recall@10": 0.10836666666666667,
+       "ndcg@10": 0.06652705536783775,
+       "completeness@10": 0.034
+      }
+     }
+    },
+    "instruction": {
+     "all": {
+      "queries": 7961,
+      "groups": 35,
+      "query_mean": {
+       "recall@1": 0.17081980009690095,
+       "recall@5": 0.32235705612479887,
+       "recall@10": 0.3894639642064589,
+       "ndcg@10": 0.29105154631630914,
+       "completeness@10": 0.32835070970983543
+      },
+      "group_mean": {
+       "recall@1": 0.12083450746664587,
+       "recall@5": 0.24782461410581189,
+       "recall@10": 0.30653303351949324,
+       "ndcg@10": 0.22272477683068412,
+       "completeness@10": 0.24496443050771508
+      }
+     },
+     "splits": {
+      "web": {
+       "queries": 5230,
+       "groups": 19,
+       "query_mean": {
+        "recall@1": 0.14691204588910134,
+        "recall@5": 0.28974551579714103,
+        "recall@10": 0.3559373577346809,
+        "ndcg@10": 0.25739969238234334,
+        "completeness@10": 0.2977055449330784
+       },
+       "group_mean": {
+        "recall@1": 0.06293135152682833,
+        "recall@5": 0.14766114756395535,
+        "recall@10": 0.19407202142908045,
+        "ndcg@10": 0.13285190033926444,
+        "completeness@10": 0.1412077246770498
+       }
+      },
+      "code": {
+       "queries": 1749,
+       "groups": 7,
+       "query_mean": {
+        "recall@1": 0.2436344577854012,
+        "recall@5": 0.4314655993901277,
+        "recall@10": 0.5075281113016962,
+        "ndcg@10": 0.38987641308494325,
+        "completeness@10": 0.47570040022870214
+       },
+       "group_mean": {
+        "recall@1": 0.20181096971439022,
+        "recall@5": 0.3715243982388937,
+        "recall@10": 0.43932364332877916,
+        "ndcg@10": 0.32386839869155715,
+        "completeness@10": 0.4233228768249946
+       }
+      },
+      "customized": {
+       "queries": 982,
+       "groups": 9,
+       "query_mean": {
+        "recall@1": 0.16846207933275142,
+        "recall@5": 0.3017129764329357,
+        "recall@10": 0.3577429444282805,
+        "ndcg@10": 0.2942638722799548,
+        "completeness@10": 0.22912423625254583
+       },
+       "group_mean": {
+        "recall@1": 0.18009281048023737,
+        "recall@5": 0.36306987803511204,
+        "recall@10": 0.44066914030314236,
+        "ndcg@10": 0.33378914353189104,
+        "completeness@10": 0.3252831290145689
+       }
+      },
+      "unseen_source": {
+       "queries": 4410,
+       "groups": 28,
+       "query_mean": {
+        "recall@1": 0.1438087139617752,
+        "recall@5": 0.2745219198790627,
+        "recall@10": 0.33820402764280316,
+        "ndcg@10": 0.2536521632617316,
+        "completeness@10": 0.2761904761904762
+       },
+       "group_mean": {
+        "recall@1": 0.1196649924245092,
+        "recall@5": 0.24955501689089782,
+        "recall@10": 0.310738819610247,
+        "ndcg@10": 0.225298863849064,
+        "completeness@10": 0.2443424205299285
+       }
+      },
+      "seen_source": {
+       "queries": 3551,
+       "groups": 7,
+       "query_mean": {
+        "recall@1": 0.20436496761475642,
+        "recall@5": 0.38176368829705914,
+        "recall@10": 0.4531238685279801,
+        "ndcg@10": 0.3374979781019151,
+        "completeness@10": 0.39312869614193185
+       },
+       "group_mean": {
+        "recall@1": 0.12551256763519264,
+        "recall@5": 0.24090300296546813,
+        "recall@10": 0.28970988915647816,
+        "ndcg@10": 0.21242842875716453,
+        "completeness@10": 0.2474524704188615
+       }
+      }
+     },
+     "groups": {
+      "apibank": {
+       "queries": 101,
+       "recall@1": 0.11221122112211222,
+       "recall@5": 0.2615511551155116,
+       "recall@10": 0.36221122112211224,
+       "ndcg@10": 0.24660698763631483,
+       "completeness@10": 0.22772277227722773
+      },
+      "apigen": {
+       "queries": 1000,
+       "recall@1": 0.3464166666666667,
+       "recall@5": 0.60675,
+       "recall@10": 0.6959166666666666,
+       "ndcg@10": 0.5309528675854732,
+       "completeness@10": 0.628
+      },
+      "appbench": {
+       "queries": 32,
+       "recall@1": 0.140625,
+       "recall@5": 0.3697916666666667,
+       "recall@10": 0.5026041666666666,
+       "ndcg@10": 0.34005311102499614,
+       "completeness@10": 0.375
+      },
+      "autotools-food": {
+       "queries": 22,
+       "recall@1": 0.0303030303030303,
+       "recall@5": 0.09848484848484848,
+       "recall@10": 0.10984848484848485,
+       "ndcg@10": 0.0888558612224699,
+       "completeness@10": 0.045454545454545456
+      },
+      "autotools-music": {
+       "queries": 32,
+       "recall@1": 0.0,
+       "recall@5": 0.0078125,
+       "recall@10": 0.0078125,
+       "ndcg@10": 0.006099688281126589,
+       "completeness@10": 0.0
+      },
+      "autotools-weather": {
+       "queries": 11,
+       "recall@1": 0.0,
+       "recall@5": 0.07121212121212121,
+       "recall@10": 0.07121212121212121,
+       "ndcg@10": 0.052173866465526283,
+       "completeness@10": 0.0
+      },
+      "craft-math-algebra": {
+       "queries": 280,
+       "recall@1": 0.7,
+       "recall@5": 0.9142857142857143,
+       "recall@10": 0.95,
+       "ndcg@10": 0.831777797394988,
+       "completeness@10": 0.95
+      },
+      "craft-tabmwp": {
+       "queries": 174,
+       "recall@1": 0.16666666666666666,
+       "recall@5": 0.4942528735632184,
+       "recall@10": 0.5862068965517241,
+       "ndcg@10": 0.36642396006599826,
+       "completeness@10": 0.5862068965517241
+      },
+      "craft-vqa": {
+       "queries": 200,
+       "recall@1": 0.21,
+       "recall@5": 0.455,
+       "recall@10": 0.595,
+       "ndcg@10": 0.38826746105634824,
+       "completeness@10": 0.595
+      },
+      "gorilla-huggingface": {
+       "queries": 500,
+       "recall@1": 0.052,
+       "recall@5": 0.168,
+       "recall@10": 0.268,
+       "ndcg@10": 0.14364463310201114,
+       "completeness@10": 0.268
+      },
+      "gorilla-pytorch": {
+       "queries": 43,
+       "recall@1": 0.0,
+       "recall@5": 0.046511627906976744,
+       "recall@10": 0.046511627906976744,
+       "ndcg@10": 0.017993153824862402,
+       "completeness@10": 0.046511627906976744
+      },
+      "gorilla-tensor": {
+       "queries": 55,
+       "recall@1": 0.01818181818181818,
+       "recall@5": 0.05454545454545454,
+       "recall@10": 0.10909090909090909,
+       "ndcg@10": 0.05190089944663981,
+       "completeness@10": 0.10909090909090909
+      },
+      "gpt4tools": {
+       "queries": 32,
+       "recall@1": 0.34375,
+       "recall@5": 0.65625,
+       "recall@10": 0.71875,
+       "ndcg@10": 0.5398395576991262,
+       "completeness@10": 0.71875
+      },
+      "gta": {
+       "queries": 14,
+       "recall@1": 0.0,
+       "recall@5": 0.14285714285714285,
+       "recall@10": 0.27380952380952384,
+       "ndcg@10": 0.14205373035138233,
+       "completeness@10": 0.0
+      },
+      "metatool": {
+       "queries": 200,
+       "recall@1": 0.3725,
+       "recall@5": 0.525,
+       "recall@10": 0.5575,
+       "ndcg@10": 0.46666502290537293,
+       "completeness@10": 0.54
+      },
+      "mnms": {
+       "queries": 33,
+       "recall@1": 0.0,
+       "recall@5": 0.0,
+       "recall@10": 0.0,
+       "ndcg@10": 0.0,
+       "completeness@10": 0.0
+      },
+      "restgpt-spotify": {
+       "queries": 40,
+       "recall@1": 0.025,
+       "recall@5": 0.05625,
+       "recall@10": 0.06875,
+       "ndcg@10": 0.04635545583995427,
+       "completeness@10": 0.05
+      },
+      "restgpt-tmdb": {
+       "queries": 54,
+       "recall@1": 0.0,
+       "recall@5": 0.0,
+       "recall@10": 0.006172839506172839,
+       "ndcg@10": 0.002741499175609863,
+       "completeness@10": 0.0
+      },
+      "reversechain": {
+       "queries": 200,
+       "recall@1": 0.03166666666666666,
+       "recall@5": 0.10375,
+       "recall@10": 0.16583333333333333,
+       "ndcg@10": 0.12037916411667668,
+       "completeness@10": 0.005
+      },
+      "rotbench": {
+       "queries": 550,
+       "recall@1": 0.03272727272727273,
+       "recall@5": 0.10363636363636364,
+       "recall@10": 0.1572727272727273,
+       "ndcg@10": 0.08360038129481048,
+       "completeness@10": 0.15636363636363637
+      },
+      "t-eval-dialog": {
+       "queries": 50,
+       "recall@1": 0.04,
+       "recall@5": 0.18,
+       "recall@10": 0.22,
+       "ndcg@10": 0.12334605226592492,
+       "completeness@10": 0.22
+      },
+      "t-eval-step": {
+       "queries": 50,
+       "recall@1": 0.010666666666666666,
+       "recall@5": 0.11152380952380953,
+       "recall@10": 0.18219047619047618,
+       "ndcg@10": 0.12065523383604793,
+       "completeness@10": 0.04
+      },
+      "taskbench-daily": {
+       "queries": 40,
+       "recall@1": 0.10500000000000001,
+       "recall@5": 0.16416666666666666,
+       "recall@10": 0.24125000000000002,
+       "ndcg@10": 0.17128217564320672,
+       "completeness@10": 0.175
+      },
+      "taskbench-huggingface": {
+       "queries": 23,
+       "recall@1": 0.15942028985507245,
+       "recall@5": 0.4963768115942029,
+       "recall@10": 0.5557971014492754,
+       "ndcg@10": 0.408978296972151,
+       "completeness@10": 0.43478260869565216
+      },
+      "taskbench-multimedia": {
+       "queries": 40,
+       "recall@1": 0.27666666666666667,
+       "recall@5": 0.47000000000000003,
+       "recall@10": 0.57625,
+       "ndcg@10": 0.49080839494677786,
+       "completeness@10": 0.375
+      },
+      "tool-be-honest": {
+       "queries": 350,
+       "recall@1": 0.08913265306122449,
+       "recall@5": 0.22923469387755102,
+       "recall@10": 0.2972959183673469,
+       "ndcg@10": 0.2698732164183579,
+       "completeness@10": 0.0
+      },
+      "toolace": {
+       "queries": 1000,
+       "recall@1": 0.34036666666666665,
+       "recall@5": 0.5988428571428571,
+       "recall@10": 0.6746595238095238,
+       "ndcg@10": 0.5206179379412579,
+       "completeness@10": 0.645
+      },
+      "toolalpaca": {
+       "queries": 94,
+       "recall@1": 0.1702127659574468,
+       "recall@5": 0.2765957446808511,
+       "recall@10": 0.3723404255319149,
+       "ndcg@10": 0.25373166417738424,
+       "completeness@10": 0.3723404255319149
+      },
+      "toolbench": {
+       "queries": 1100,
+       "recall@1": 0.02053030303030303,
+       "recall@5": 0.10653030303030303,
+       "recall@10": 0.17524242424242423,
+       "ndcg@10": 0.10624659159500266,
+       "completeness@10": 0.07727272727272727
+      },
+      "toolbench-sam": {
+       "queries": 197,
+       "recall@1": 0.06852791878172589,
+       "recall@5": 0.10152284263959391,
+       "recall@10": 0.1116751269035533,
+       "ndcg@10": 0.09209929729147102,
+       "completeness@10": 0.1116751269035533
+      },
+      "toolemu": {
+       "queries": 38,
+       "recall@1": 0.039473684210526314,
+       "recall@5": 0.09210526315789473,
+       "recall@10": 0.13157894736842105,
+       "ndcg@10": 0.08315295290026663,
+       "completeness@10": 0.07894736842105263
+      },
+      "tooleyes": {
+       "queries": 95,
+       "recall@1": 0.042105263157894736,
+       "recall@5": 0.14736842105263157,
+       "recall@10": 0.25263157894736843,
+       "ndcg@10": 0.12717840816622059,
+       "completeness@10": 0.25263157894736843
+      },
+      "toolink": {
+       "queries": 497,
+       "recall@1": 0.2658283031522468,
+       "recall@5": 0.468075117370892,
+       "recall@10": 0.5204560697518444,
+       "ndcg@10": 0.46707088595005225,
+       "completeness@10": 0.4084507042253521
+      },
+      "toollens": {
+       "queries": 314,
+       "recall@1": 0.0010615711252653928,
+       "recall@5": 0.018577494692144373,
+       "recall@10": 0.030785562632696387,
+       "ndcg@10": 0.01717638525438096,
+       "completeness@10": 0.009554140127388535
+      },
+      "ultratool": {
+       "queries": 500,
+       "recall@1": 0.018166666666666668,
+       "recall@5": 0.077,
+       "recall@10": 0.134,
+       "ndcg@10": 0.07676459722575395,
+       "completeness@10": 0.072
+      }
+     }
+    }
+   }
+  },
+  "livemcpbench": {
+   "tools": 527,
+   "queries": 94,
+   "notes": {
+    "tasks": 95,
+    "gold_mentions": 256,
+    "gold_mentions_not_in_catalogue": 5,
+    "gold_mentions_with_a_name_on_several_servers": 29,
+    "tasks_dropped_without_gold": 1
+   },
+   "settings": {
+    "query": {
+     "all": {
+      "queries": 94,
+      "groups": 6,
+      "query_mean": {
+       "recall@1": 0.08865248226950355,
+       "recall@5": 0.32066869300911854,
+       "recall@10": 0.3928571428571429,
+       "ndcg@10": 0.2950613925127132,
+       "completeness@10": 0.20212765957446807
+      },
+      "group_mean": {
+       "recall@1": 0.09037698412698413,
+       "recall@5": 0.332473544973545,
+       "recall@10": 0.3925925925925926,
+       "ndcg@10": 0.2953054172016862,
+       "completeness@10": 0.2029100529100529
+      },
+      "ci95": {
+       "recall@1": [
+        0.0549645390070922,
+        0.125
+       ],
+       "recall@5": [
+        0.250886524822695,
+        0.39007092198581556
+       ],
+       "recall@10": [
+        0.3149696048632219,
+        0.4663120567375887
+       ],
+       "ndcg@10": [
+        0.23671322970542336,
+        0.35153537216076214
+       ],
+       "completeness@10": [
+        0.1276595744680851,
+        0.2872340425531915
+       ]
+      }
+     },
+     "splits": {},
+     "groups": {
+      "Finance": {
+       "queries": 14,
+       "recall@1": 0.14285714285714285,
+       "recall@5": 0.20238095238095238,
+       "recall@10": 0.20238095238095238,
+       "ndcg@10": 0.2115192652817936,
+       "completeness@10": 0.0
+      },
+      "Leisure": {
+       "queries": 14,
+       "recall@1": 0.05357142857142857,
+       "recall@5": 0.5,
+       "recall@10": 0.5535714285714286,
+       "ndcg@10": 0.3994730785578211,
+       "completeness@10": 0.42857142857142855
+      },
+      "Lifestyle": {
+       "queries": 15,
+       "recall@1": 0.03333333333333333,
+       "recall@5": 0.38333333333333336,
+       "recall@10": 0.38333333333333336,
+       "ndcg@10": 0.24402870149861328,
+       "completeness@10": 0.2
+      },
+      "Office": {
+       "queries": 30,
+       "recall@1": 0.08333333333333333,
+       "recall@5": 0.25833333333333336,
+       "recall@10": 0.3888888888888889,
+       "ndcg@10": 0.2873693148095235,
+       "completeness@10": 0.2
+      },
+      "Shopping": {
+       "queries": 9,
+       "recall@1": 0.05555555555555555,
+       "recall@5": 0.3333333333333333,
+       "recall@10": 0.3333333333333333,
+       "ndcg@10": 0.2176458670242861,
+       "completeness@10": 0.2222222222222222
+      },
+      "Travel": {
+       "queries": 12,
+       "recall@1": 0.17361111111111113,
+       "recall@5": 0.31746031746031744,
+       "recall@10": 0.49404761904761907,
+       "ndcg@10": 0.4117962760380796,
+       "completeness@10": 0.16666666666666666
+      }
+     }
+    }
+   }
+  }
+ }
+}

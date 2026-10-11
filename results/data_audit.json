@@ -1,0 +1,464 @@
+{
+ "revisions": {
+  "mangopy/ToolRet-Queries": "b8c76ad3349ff17497b6bdb28bb5b8f61a0f6445",
+  "mangopy/ToolRet-Tools": "e06c38c75612b6536bd959e08cdd345894aba6a7",
+  "mangopy/ToolRet-Training-20w": "fdf5a317455b1e60785de7ba587496aa6cc878e4"
+ },
+ "thresholds": {
+  "query_jaccard": 0.9,
+  "description_ratio": 0.9,
+  "min_description_chars": 40,
+  "task_threshold": 0.01,
+  "candidates_per_query": 20
+ },
+ "rule": "A task is seen-source if its source dataset is one the training set was built from, or at least 1% of its queries are exact or near-duplicates of a training query, or at least 1% of its queries have a gold tool that matches a training positive. Every other task is unseen-source.",
+ "train": {
+  "rows": 208826,
+  "distinct_queries": 203605,
+  "distinct_positive_tools": 23639,
+  "rows_to_exclude": 1034
+ },
+ "corpus": {
+  "tools": 44453,
+  "identical_to_a_training_positive": 23639,
+  "identical_to_a_training_positive_or_negative": 30135
+ },
+ "totals": {
+  "queries": 7961,
+  "queries_duplicating_a_training_query": 834,
+  "gold_tools": 14106,
+  "gold_tools_matching_a_training_positive": 4580,
+  "queries_with_a_gold_tool_in_training": 2744,
+  "queries_with_every_gold_tool_in_training": 2182,
+  "gold tools: identical documentation": 4028,
+  "queries_identical_to_a_training_query": 768,
+  "gold tools: same description under another name": 528,
+  "gold tools: same name, near-identical description": 20,
+  "gold tools: same name and description": 4
+ },
+ "seen_source_tasks": [
+  "apigen",
+  "autotools-music",
+  "autotools-weather",
+  "toolace",
+  "toolalpaca",
+  "toolbench",
+  "toollens"
+ ],
+ "unseen_source_tasks": [
+  "apibank",
+  "appbench",
+  "autotools-food",
+  "craft-math-algebra",
+  "craft-tabmwp",
+  "craft-vqa",
+  "gorilla-huggingface",
+  "gorilla-pytorch",
+  "gorilla-tensor",
+  "gpt4tools",
+  "gta",
+  "metatool",
+  "mnms",
+  "restgpt-spotify",
+  "restgpt-tmdb",
+  "reversechain",
+  "rotbench",
+  "t-eval-dialog",
+  "t-eval-step",
+  "taskbench-daily",
+  "taskbench-huggingface",
+  "taskbench-multimedia",
+  "tool-be-honest",
+  "toolbench-sam",
+  "toolemu",
+  "tooleyes",
+  "toolink",
+  "ultratool"
+ ],
+ "tasks": {
+  "apibank": {
+   "queries": 101,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 172,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "apigen": {
+   "queries": 1000,
+   "queries_duplicating_a_training_query": 87,
+   "gold_tools": 1326,
+   "gold_tools_matching_a_training_positive": 1323,
+   "queries_with_a_gold_tool_in_training": 999,
+   "queries_with_every_gold_tool_in_training": 997,
+   "gold tools: identical documentation": 1323,
+   "queries_identical_to_a_training_query": 22,
+   "seen_source": true,
+   "reasons": [
+    "source dataset is in the training set",
+    "queries duplicate training queries",
+    "gold tools are training positives"
+   ]
+  },
+  "appbench": {
+   "queries": 32,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 66,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "autotools-food": {
+   "queries": 22,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 54,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "autotools-music": {
+   "queries": 32,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 140,
+   "gold_tools_matching_a_training_positive": 33,
+   "queries_with_a_gold_tool_in_training": 27,
+   "queries_with_every_gold_tool_in_training": 0,
+   "gold tools: same description under another name": 33,
+   "seen_source": true,
+   "reasons": [
+    "gold tools are training positives"
+   ]
+  },
+  "autotools-weather": {
+   "queries": 11,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 41,
+   "gold_tools_matching_a_training_positive": 15,
+   "queries_with_a_gold_tool_in_training": 9,
+   "queries_with_every_gold_tool_in_training": 0,
+   "gold tools: same description under another name": 15,
+   "seen_source": true,
+   "reasons": [
+    "gold tools are training positives"
+   ]
+  },
+  "craft-math-algebra": {
+   "queries": 280,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 280,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "craft-tabmwp": {
+   "queries": 174,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 174,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "craft-vqa": {
+   "queries": 200,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 200,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "gorilla-huggingface": {
+   "queries": 500,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 500,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "gorilla-pytorch": {
+   "queries": 43,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 43,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "gorilla-tensor": {
+   "queries": 55,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 55,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "gpt4tools": {
+   "queries": 32,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 32,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "gta": {
+   "queries": 14,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 28,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "metatool": {
+   "queries": 200,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 221,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "mnms": {
+   "queries": 33,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 85,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "restgpt-spotify": {
+   "queries": 40,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 97,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "restgpt-tmdb": {
+   "queries": 54,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 124,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "reversechain": {
+   "queries": 200,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 585,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "rotbench": {
+   "queries": 550,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 574,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "t-eval-dialog": {
+   "queries": 50,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 50,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "t-eval-step": {
+   "queries": 50,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 179,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "taskbench-daily": {
+   "queries": 40,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 104,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "taskbench-huggingface": {
+   "queries": 23,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 63,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "taskbench-multimedia": {
+   "queries": 40,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 105,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "tool-be-honest": {
+   "queries": 350,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 1466,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "toolace": {
+   "queries": 1000,
+   "queries_duplicating_a_training_query": 2,
+   "gold_tools": 1402,
+   "gold_tools_matching_a_training_positive": 553,
+   "queries_with_a_gold_tool_in_training": 428,
+   "queries_with_every_gold_tool_in_training": 311,
+   "gold tools: identical documentation": 538,
+   "gold tools: same description under another name": 14,
+   "gold tools: same name, near-identical description": 1,
+   "queries_identical_to_a_training_query": 2,
+   "seen_source": true,
+   "reasons": [
+    "source dataset is in the training set",
+    "gold tools are training positives"
+   ]
+  },
+  "toolalpaca": {
+   "queries": 94,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 94,
+   "gold_tools_matching_a_training_positive": 1,
+   "queries_with_a_gold_tool_in_training": 1,
+   "queries_with_every_gold_tool_in_training": 1,
+   "gold tools: same description under another name": 1,
+   "seen_source": true,
+   "reasons": [
+    "gold tools are training positives"
+   ]
+  },
+  "toolbench": {
+   "queries": 1100,
+   "queries_duplicating_a_training_query": 745,
+   "gold_tools": 2629,
+   "gold_tools_matching_a_training_positive": 2178,
+   "queries_with_a_gold_tool_in_training": 1008,
+   "queries_with_every_gold_tool_in_training": 792,
+   "queries_identical_to_a_training_query": 744,
+   "gold tools: identical documentation": 2167,
+   "gold tools: same description under another name": 11,
+   "seen_source": true,
+   "reasons": [
+    "source dataset is in the training set",
+    "queries duplicate training queries",
+    "gold tools are training positives"
+   ]
+  },
+  "toolbench-sam": {
+   "queries": 197,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 206,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "toolemu": {
+   "queries": 38,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 52,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "tooleyes": {
+   "queries": 95,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 95,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "toolink": {
+   "queries": 497,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 1022,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  },
+  "toollens": {
+   "queries": 314,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 818,
+   "gold_tools_matching_a_training_positive": 477,
+   "queries_with_a_gold_tool_in_training": 272,
+   "queries_with_every_gold_tool_in_training": 81,
+   "gold tools: same description under another name": 454,
+   "gold tools: same name, near-identical description": 19,
+   "gold tools: same name and description": 4,
+   "seen_source": true,
+   "reasons": [
+    "gold tools are training positives"
+   ]
+  },
+  "ultratool": {
+   "queries": 500,
+   "queries_duplicating_a_training_query": 0,
+   "gold_tools": 1024,
+   "gold_tools_matching_a_training_positive": 0,
+   "queries_with_a_gold_tool_in_training": 0,
+   "queries_with_every_gold_tool_in_training": 0,
+   "seen_source": false,
+   "reasons": []
+  }
+ }
+}

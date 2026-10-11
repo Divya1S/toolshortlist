@@ -1,0 +1,107 @@
+# nDCG@10 (x100) published in the ToolRet paper, arXiv 2503.01763v2, transcribed on 6 Oct 2026.
+# `run` names the result file in results/ that follows the same protocol.
+# Used only by the reproduction table in results/baselines.md.
+
+[[row]]
+label = "BM25s"
+run = "bm25"
+setting = "query"
+source = "Table 4"
+web = 18.98
+code = 21.20
+customized = 26.76
+average = 22.32
+
+[[row]]
+label = "BM25s"
+run = "bm25"
+setting = "instruction"
+source = "Table 5"
+web = 26.33
+code = 41.90
+customized = 41.16
+average = 36.46
+
+[[row]]
+label = "all-MiniLM-L6-v2"
+run = "paper-all-MiniLM-L6-v2"
+setting = "query"
+source = "Table 4"
+web = 11.66
+code = 14.44
+customized = 22.80
+average = 16.30
+
+[[row]]
+label = "all-MiniLM-L6-v2"
+run = "paper-all-MiniLM-L6-v2"
+setting = "instruction"
+source = "Table 5"
+web = 12.77
+code = 31.59
+customized = 32.24
+average = 25.53
+
+# The released evaluation code puts an empty "Instruct: / Query:" prefix on a query sent alone.
+# This row shows the score with that prefix against the same published number.
+[[row]]
+label = "all-MiniLM-L6-v2, with the released code's empty prefix"
+run = "paper-codeprefix-all-MiniLM-L6-v2"
+setting = "query"
+source = "Table 4"
+web = 11.66
+code = 14.44
+customized = 22.80
+average = 16.30
+
+[[row]]
+label = "bge-base-en-v1.5"
+run = "paper-bge-base-en-v1.5"
+setting = "query"
+source = "Table 4"
+web = 22.50
+code = 17.78
+customized = 25.99
+average = 22.09
+
+[[row]]
+label = "bge-base-en-v1.5"
+run = "paper-bge-base-en-v1.5"
+setting = "instruction"
+source = "Table 5"
+web = 25.95
+code = 35.15
+customized = 43.20
+average = 34.77
+
+# The paper does not say which setting its trained models were evaluated in,
+# so the trained checkpoint is compared against both of our settings.
+[[row]]
+label = "bge-base-en-v1.5, trained on instruction + query"
+run = "paper-toolret-trained-bge-base"
+setting = "query"
+source = "Table 14"
+web = 20.35
+code = 30.69
+customized = 37.01
+average = 29.35
+
+[[row]]
+label = "bge-base-en-v1.5, trained on instruction + query"
+run = "paper-toolret-trained-bge-base"
+setting = "instruction"
+source = "Table 14"
+web = 20.35
+code = 30.69
+customized = 37.01
+average = 29.35
+
+[[row]]
+label = "bge-base-en-v1.5, trained on instruction + query, with the released code's empty prefix"
+run = "paper-codeprefix-toolret-trained-bge-base"
+setting = "query"
+source = "Table 14"
+web = 20.35
+code = 30.69
+customized = 37.01
+average = 29.35

@@ -1,0 +1,11 @@
+name = "paper-codeprefix-bge-base-en-v1.5"
+description = "As paper-bge-base-en-v1.5, but with the empty 'Instruct: / Query:' prefix that the released ToolRet code puts on a query sent alone. The untrained counterpart of paper-codeprefix-toolret-trained-bge-base."
+
+[retriever]
+type = "dense"
+model = "BAAI/bge-base-en-v1.5"
+revision = "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a"
+pooling = "cls"
+max_length = 512
+query_template = "Instruct: \nQuery: {query}"
+query_template_inst = "Instruct: {instruction}\nQuery: {query}"

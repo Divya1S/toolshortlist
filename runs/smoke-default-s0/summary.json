@@ -1,0 +1,70 @@
+{
+ "run": "train-default-s0",
+ "config": {
+  "name": "default",
+  "description": "bge-small-en-v1.5 (33M), full tool text, hard negatives on. The run every ablation changes one thing from.",
+  "model": {
+   "base": "BAAI/bge-small-en-v1.5",
+   "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+   "pooling": "cls",
+   "query_template": "Represent this sentence for searching relevant passages: {query}",
+   "eval_max_length": 512
+  },
+  "data": {
+   "text_mode": "full",
+   "hard_negatives": true
+  },
+  "training": {
+   "batch_size": 8,
+   "epochs": 1,
+   "learning_rate": 2e-05,
+   "warmup": 0.1,
+   "temperature": 0.05,
+   "query_max_length": 128,
+   "doc_max_length": 256,
+   "validate_every": 500
+  }
+ },
+ "seed": 0,
+ "steps": 40,
+ "data": {
+  "rows_after_exclusion": 1500,
+  "train_rows": 1220,
+  "validation_rows": 32,
+  "dropped_rows": 248,
+  "tools": 11626,
+  "validation_corpus": 10250,
+  "limit": 1500,
+  "miner": "BAAI/bge-small-en-v1.5",
+  "mine_ranks": [
+   4,
+   30
+  ],
+  "negatives_per_query": 8
+ },
+ "best": {
+  "step": 40,
+  "loss": 1.1184,
+  "lr": 0.0,
+  "seconds": 30.6,
+  "validation": {
+   "ndcg@10": 0.5419111244803899,
+   "recall@10": 0.6875
+  }
+ },
+ "minutes": 1.7,
+ "environment": {
+  "python": "3.13.13",
+  "machine": "arm64",
+  "device": "mps",
+  "torch": "2.14.1",
+  "transformers": "5.19.0",
+  "numpy": "2.5.3"
+ },
+ "dataset_revisions": {
+  "mangopy/ToolRet-Queries": "b8c76ad3349ff17497b6bdb28bb5b8f61a0f6445",
+  "mangopy/ToolRet-Tools": "e06c38c75612b6536bd959e08cdd345894aba6a7",
+  "mangopy/ToolRet-Training-20w": "fdf5a317455b1e60785de7ba587496aa6cc878e4",
+  "ICIP/LiveMCPBench": "ddea2d24196638bc4026c4cb891f679d0357bfd0"
+ }
+}

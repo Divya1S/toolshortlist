@@ -1,0 +1,24 @@
+name = "text-name-description"
+description = "Ablation: the retriever sees the tool's name and description, no parameter schema."
+
+[model]
+base = "BAAI/bge-small-en-v1.5"
+revision = "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
+pooling = "cls"
+query_template = "Represent this sentence for searching relevant passages: {query}"
+eval_max_length = 512
+
+[data]
+text_mode = "name_description"
+hard_negatives = true
+
+# Fixed before any run; nothing here is tuned on test data.
+[training]
+batch_size = 64
+epochs = 1
+learning_rate = 2e-5
+warmup = 0.1
+temperature = 0.05
+query_max_length = 128
+doc_max_length = 256
+validate_every = 500
